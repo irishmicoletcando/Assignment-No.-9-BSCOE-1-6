@@ -57,19 +57,25 @@ resumepdf = FPDF('P', 'mm', 'Letter')
 
 # add page
 resumepdf.add_page()
+
 # specify font 
 # fonts can be times, courier, helvetica, symbol, zpfdingbats
 # 'B' (bold), 'U' (underline), 'I' (italic), '' (regular), combination ('BU')
 resumepdf.set_font('times', 'B', 16)
-
+resumepdf.set_margins(top=20, left=20, right=20)
 # adding text
 # w = width
 # h = height
 # txt = text
 # ln = (0 - False, 1 - True = move cursor down to next line)
 resumepdf.cell(0, 0, name,  align='C', ln=True)
-resumepdf.set_font('times', '', 12)
-resumepdf.cell(0, 10, address + " | " + phone + " | " + email,  align='C', ln=True)
+resumepdf.set_font('times', '', 13)
+resumepdf.cell(0, 12, address + " | " + phone + " | " + email,  align='C', ln=True)
 resumepdf.cell(0, 0, github + " | " + website,  align='C', ln=True)
+resumepdf.cell(0, 7, " ", align='L', ln=True)
+resumepdf.set_font('times', 'B', 14)
+resumepdf.cell(0, 10, "CAREER OBJECTIVES", align='L', ln=True)
+resumepdf.set_font('times', '', 13)
+resumepdf.cell(0, 2, careerObjectives, align='L', ln=True)
 
 resumepdf.output("CANDO_IRISH MICOLE.pdf")
